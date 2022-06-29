@@ -49,6 +49,7 @@
 }
 .form header .text{
     margin-bottom: 20px;
+    width: 80%;
 }
 .inputs{
     background: #fff;
@@ -85,6 +86,7 @@
     padding: 7px 10px;
     font-weight: bold;
     width: 100%;
+    border: 1px solid;
     border-color:#eee ;
     outline: none;
 }
@@ -92,5 +94,16 @@
     padding: 20px;
 }
 .form-container footer button{
-    
+    padding: 10px 20px;
+    border-radius: 10px;
+    background: teal;
+    color: #fff;
+    text-transform: uppercase;
+    border: none;
+    box-shadow: 1px 2px 5px 3px #ddd;
+    margin: 20px 0;
+    font-weight: bold;
+}
+.form-container footer h3 span{
+    color: teal;
 }
