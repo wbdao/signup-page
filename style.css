@@ -107,3 +107,17 @@
 .form-container footer h3 span{
     color: teal;
 }
+.error{
+    display: none;
+    color: red;
+}
+.invalid{
+    display: block;
+}
+.required{
+    display: none;
+    color: red;
+}
+.inrequired{
+    display: block;
+}

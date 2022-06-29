@@ -35,40 +35,80 @@
             <div class="input-groub">
               <div class="input">
                 <label for="firstname">First Name</label>
-                <input type="text" id="firstname" name="firstname" />
+                <input type="text" id="firstname" name="firstname"  required/>
+                <span class="error">Password don't Match</span>
+                <span class="required">Required</span>
               </div>
               <div class="input">
                 <label for="lastname">Last Name</label>
-                <input type="text" id="lastname" name="lastname"/>
+                <input type="text" id="lastname" name="lastname" required/>
+                <span class="error">Password don't Match</span>
+                <span class="required">Required</span>
               </div>
             </div>
             <div class="input-groub">
                 <div class="input">
                   <label for="email">Email</label>
-                  <input type="email" id="email" name="email" />
+                  <input type="email" id="email" name="email"  required
+                  pattern="! # $ % & ' * + - / = ? ^ _ ` { | } ~"/>
+                  <span class="error">Please enter Valid Email</span>
+                  <span class="required">Required</span>
                 </div>
                 <div class="input">
                   <label for="phone">Phone number</label>
-                  <input type="tel" id="phone" name="phone"/>
+                  <input type="tel" id="phone" name="phone" required
+                  pattern="^01[0125][0-9]{8}$" max="11" min="11"/>
+                  <span class="error">Please Enter Vlaid number</span>
+                  <span class="required">Required</span>
                 </div>
               </div>
               <div class="input-groub">
                 <div class="input">
                   <label for="password">password</label>
-                  <input type="password" id="password" name="password" />
+                  <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$" required/>
+                  <span class="error">Password don't Match</span>
+                  <span class="required">Required</span>
                 </div>
                 <div class="input">
                   <label for="c-password">Confirm Password</label>
-                  <input type="password" id="c-password" name="c-password"/>
+                  <input type="password" id="c-password" name="c-password" required/>
+                  <span class="error">Password don't Match</span>
+                  <span class="required">Required</span>
                 </div>
               </div>
           </div>
           <footer>
-            <button>Create New Account</button>
+            <button type="submit">Create New Account</button>
             <h3>Already have an Account? <span>Log In</span></h3>
           </footer>
         </form>
       </div>
     </div>
+
+    <script>
+        const $=(id)=>{return document.querySelector(id)};
+        const $a=(id)=>{return document.querySelectorAll(id)};
+        const password=document.querySelector('#password');
+        function valid(input,i){
+            input.onchange= (e)=>{
+            if(e.target.value === ''){
+                $a('.error')[i].style.display='none';
+                $a('.required')[i].style.display='block';
+            }else if(e.target.checkValidity() ){
+                $a('.error')[i].style.display='none';
+                $a('.required')[i].style.display='none';
+            }else{
+                $a('.error')[i].style.display='block';
+                $a('.required')[i].style.display='none';
+            }
+        }
+        }
+        valid($('#firstname'),0);
+        valid($('#lastname'),1);
+        valid($('#email'),2);
+        valid($('#phone'),3);
+        valid(password,4);
+        valid($('#c-password'),5)
+    </script>
   </body>
 </html>
